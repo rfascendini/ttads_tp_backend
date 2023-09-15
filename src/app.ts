@@ -6,7 +6,7 @@ app.use(express.json())
 
 app.use('/api/carreras', carreraRouter)
 
-app.use((_, res) => {
+app.use((_req : any,res : any) => {
   return res.status(404).send({ message: 'Resource not found' })
 })
 

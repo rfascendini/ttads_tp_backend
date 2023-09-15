@@ -3,7 +3,7 @@ import { carreraRouter } from './carrera/carrera.routes';
 const app = express();
 app.use(express.json());
 app.use('/api/carreras', carreraRouter);
-app.use((_, res) => {
+app.use((_req, res) => {
     return res.status(404).send({ message: 'Resource not found' });
 });
 app.listen(3000, () => {
