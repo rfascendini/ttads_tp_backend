@@ -1,12 +1,19 @@
 import { Carrera } from './carrera.entity.js';
-const carreras = [
-    new Carrera(1, 'Ing en Sistemas'),
-];
+import { db_connection } from '../services/db.js';
+const carreras = [];
 export class CarreraRepository {
-    findAll() {
+    getAll() {
+        db_connection.query("SELECT * FROM carreras", (err, rows, fields) => {
+            for (var i = 0; i < rows.length; i++) {
+                carreras.push(new Carrera(rows[i].id, rows[i].nombre));
+            }
+        });
         return carreras;
     }
-    findOne(item) {
+    get(item) {
+        const carreras = [
+            new Carrera(1, 'Ing en Sistemas'),
+        ];
         return carreras.find((carrera) => carrera.id.toString() === item.id);
     }
     add(item) {

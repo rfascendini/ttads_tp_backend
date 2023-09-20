@@ -1,7 +1,7 @@
 import { Router } from 'express'
-import { findAll, findOne } from './carrera.controler'
+import { getAll, get } from './carrera.controler.js'
 
 export const carreraRouter = Router()
 
-carreraRouter.get('/', findAll)
-carreraRouter.get('/:id', findOne)
+carreraRouter.get('/', getAll)
+carreraRouter.get('/:id', get)

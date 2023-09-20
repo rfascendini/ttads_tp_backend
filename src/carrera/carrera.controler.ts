@@ -4,17 +4,17 @@ import { Carrera } from './carrera.entity.js'
 
 const repository = new CarreraRepository()
 
-function findAll(req: Request, res: Response) {
-  res.json({ data: repository.findAll() })
+function getAll(req: Request, res: Response) {
+  res.json({ data: repository.getAll() })
 }
 
-function findOne(req: Request, res: Response) {
+function get(req: Request, res: Response) {
   const id = req.params.id
-  const carrera = repository.findOne({ id })
+  const carrera = repository.get({ id })
   if (!carrera) {
     return res.status(404).send({ message: 'Carrera not found' })
   }
   res.json({ data: carrera })
 }
 
-export { findAll, findOne }
+export { getAll, get }
