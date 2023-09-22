@@ -9,13 +9,9 @@ export class CarreraRepository implements Repository<Carrera> {
   public getAll(): Carrera[] | undefined {
 
     db_connection.query("SELECT * FROM carreras", (err: any, rows: any, fields: any) => {
-
       for (var i = 0; i < rows.length; i++) {
-
         carreras.push(new Carrera(rows[i].id, rows[i].nombre))
       }
-
-      
     });
     
     return carreras;
@@ -23,16 +19,17 @@ export class CarreraRepository implements Repository<Carrera> {
 
   public get(item: { id: string }): Carrera | undefined {
 
-    const carreras = [
-      new Carrera(
-        1,
-        'Ing en Sistemas',
-      ),
-    ]
+    db_connection.query("SELECT * FROM carreras WHERE id = ?", [item.id], (err: any, rows: any, fields: any) => {
+      for (var i = 0; i < rows.length; i++) {
+        carreras.push(new Carrera(rows[i].id, rows[i].nombre))
+      }
+    });
 
     return carreras.find((carrera) => carrera.id.toString() === item.id)
   }
 
+
+  
   public add(item: Carrera): Carrera | undefined {
     throw new Error('Method not implemented.')
   }

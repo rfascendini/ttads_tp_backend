@@ -3,4 +3,4 @@ GET http://localhost:3000/api/carreras
 
 
 ### obtener un carrera
-GET http://localhost:3000/api/carreras/1
+GET http://localhost:3000/api/carreras/47

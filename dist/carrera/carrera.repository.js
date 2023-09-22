@@ -11,9 +11,11 @@ export class CarreraRepository {
         return carreras;
     }
     get(item) {
-        const carreras = [
-            new Carrera(1, 'Ing en Sistemas'),
-        ];
+        db_connection.query("SELECT * FROM carreras WHERE id = ?", [item.id], (err, rows, fields) => {
+            for (var i = 0; i < rows.length; i++) {
+                carreras.push(new Carrera(rows[i].id, rows[i].nombre));
+            }
+        });
         return carreras.find((carrera) => carrera.id.toString() === item.id);
     }
     add(item) {
