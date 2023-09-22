@@ -16,7 +16,6 @@ export class CarreraRepository implements Repository<Carrera> {
     
     return carreras;
 
-    
   }
 
   public get(item: { id: string }): Carrera | undefined {
@@ -29,8 +28,6 @@ export class CarreraRepository implements Repository<Carrera> {
 
     return carreras.find((carrera) => carrera.id.toString() === item.id)
   }
-
-
   
   public add(item: Carrera): Carrera | undefined {
     throw new Error('Method not implemented.')
