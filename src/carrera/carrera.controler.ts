@@ -5,7 +5,7 @@ import { Carrera } from './carrera.entity.js'
 const repository = new CarreraRepository()
 
 function getAll(req: Request, res: Response) {
-  res.json({ data: repository.getAll() })
+  res.json(repository.getAll())
 }
 
 function get(req: Request, res: Response) {
@@ -14,7 +14,7 @@ function get(req: Request, res: Response) {
   if (!carrera) {
     return res.status(404).send({ message: 'Carrera not found' })
   }
-  res.json({ data: carrera })
+  res.json(carrera)
 }
 
 export { getAll, get }

@@ -3,7 +3,7 @@ import { db_connection } from '../services/db.js';
 const carreras = [];
 export class CarreraRepository {
     getAll() {
-        db_connection.query("SELECT * FROM carreras", (err, rows, fields) => {
+        db_connection.query("SELECT * FROM carreras LIMIT 10", (err, rows, fields) => {
             for (var i = 0; i < rows.length; i++) {
                 carreras.push(new Carrera(rows[i].id, rows[i].nombre));
             }

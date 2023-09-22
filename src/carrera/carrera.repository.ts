@@ -8,13 +8,15 @@ export class CarreraRepository implements Repository<Carrera> {
 
   public getAll(): Carrera[] | undefined {
 
-    db_connection.query("SELECT * FROM carreras", (err: any, rows: any, fields: any) => {
+    db_connection.query("SELECT * FROM carreras LIMIT 10", (err: any, rows: any, fields: any) => {
       for (var i = 0; i < rows.length; i++) {
         carreras.push(new Carrera(rows[i].id, rows[i].nombre))
       }
     });
     
     return carreras;
+
+    
   }
 
   public get(item: { id: string }): Carrera | undefined {

@@ -1,7 +1,7 @@
 import { CarreraRepository } from './carrera.repository.js';
 const repository = new CarreraRepository();
 function getAll(req, res) {
-    res.json({ data: repository.getAll() });
+    res.json(repository.getAll());
 }
 function get(req, res) {
     const id = req.params.id;
@@ -9,7 +9,7 @@ function get(req, res) {
     if (!carrera) {
         return res.status(404).send({ message: 'Carrera not found' });
     }
-    res.json({ data: carrera });
+    res.json(carrera);
 }
 export { getAll, get };
 //# sourceMappingURL=carrera.controler.js.map
