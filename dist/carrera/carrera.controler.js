@@ -1,7 +1,7 @@
 import { CarreraRepository } from './carrera.repository.js';
 const repository = new CarreraRepository();
 function getAll(req, res) {
-    res.json(repository.getAll());
+    repository.getAll().then((data) => res.json(data));
 }
 function get(req, res) {
     const id = req.params.id;
