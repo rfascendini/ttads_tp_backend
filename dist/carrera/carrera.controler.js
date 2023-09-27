@@ -5,11 +5,7 @@ function getAll(req, res) {
 }
 function get(req, res) {
     const id = req.params.id;
-    const carrera = repository.get({ id });
-    if (!carrera) {
-        return res.status(404).send({ message: 'Carrera not found' });
-    }
-    res.json(carrera);
+    repository.get({ id }).then((data) => res.json(data));
 }
 export { getAll, get };
 //# sourceMappingURL=carrera.controler.js.map

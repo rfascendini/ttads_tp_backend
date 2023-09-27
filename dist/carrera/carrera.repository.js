@@ -8,12 +8,11 @@ export class CarreraRepository {
         return carreras;
     }
     async get(item) {
-        const carrera = {
-            id: 0,
-            nombre: ''
-        };
+        const carrera = { id: 0, nombre: '' };
         const row = await db_connection.execute("SELECT * FROM carreras WHERE id = ?", [item.id]);
-        console.log(row);
+        const data = (JSON.parse(JSON.stringify(row[0])));
+        carrera.id = data[0].id;
+        carrera.nombre = data[0].nombre;
         return carrera;
     }
     add(item) {
