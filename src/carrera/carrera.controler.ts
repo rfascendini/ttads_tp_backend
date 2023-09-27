@@ -1,6 +1,5 @@
 import { Request, Response, NextFunction } from 'express'
 import { CarreraRepository } from './carrera.repository.js'
-import { Carrera } from './carrera.entity.js'
 
 const repository = new CarreraRepository()
 
