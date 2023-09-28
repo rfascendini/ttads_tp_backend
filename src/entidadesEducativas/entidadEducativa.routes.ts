@@ -1,7 +1,7 @@
-// import { Router } from 'express'
-// import { getAll, get } from './entidadEducativa.controler.js'
+import { Router } from 'express'
+import { getAll, get } from './entidadEducativa.controler.js'
 
-// export const entidadEducativaRouter = Router()
+export const entidadEducativaRouter = Router()
 
-// entidadEducativaRouter.get('/', getAll)
-// entidadEducativaRouter.get('/:id', get)
+entidadEducativaRouter.get('/', getAll)
+entidadEducativaRouter.get('/:id', get)
