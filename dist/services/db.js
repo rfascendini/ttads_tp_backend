@@ -1,15 +1,8 @@
-import mysql from 'mysql';
-export const db_connection = mysql.createConnection({
+import mysql2 from 'mysql2';
+export const db_connection = mysql2.createPool({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'ttads_sistemainscripcion'
-});
-db_connection.connect(function (err) {
-    if (err) {
-        console.error('Error de Conexión: ' + err.stack);
-        return;
-    }
-    console.log("Conexión exitosa!");
-});
+    database: 'ttads_sistemainscripcion',
+}).promise();
 //# sourceMappingURL=db.js.map

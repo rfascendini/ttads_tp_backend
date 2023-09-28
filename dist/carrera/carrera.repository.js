@@ -1,22 +1,19 @@
-import { Carrera } from './carrera.entity.js';
 import { db_connection } from '../services/db.js';
-const carreras = [];
 export class CarreraRepository {
-    getAll() {
-        db_connection.query("SELECT * FROM carreras LIMIT 10", (err, rows, fields) => {
-            for (var i = 0; i < rows.length; i++) {
-                carreras.push(new Carrera(rows[i].id, rows[i].nombre));
-            }
-        });
+    async getAll() {
+        const carreras = [];
+        const rows = await db_connection.execute("SELECT * FROM carreras LIMIT 10");
+        const data = (JSON.parse(JSON.stringify(rows[0])));
+        data.forEach((item) => carreras.push(item));
         return carreras;
     }
-    get(item) {
-        db_connection.query("SELECT * FROM carreras WHERE id = ?", [item.id], (err, rows, fields) => {
-            for (var i = 0; i < rows.length; i++) {
-                carreras.push(new Carrera(rows[i].id, rows[i].nombre));
-            }
-        });
-        return carreras.find((carrera) => carrera.id.toString() === item.id);
+    async get(item) {
+        const carrera = { id: 0, nombre: '' };
+        const row = await db_connection.execute("SELECT * FROM carreras WHERE id = ?", [item.id]);
+        const data = (JSON.parse(JSON.stringify(row[0])));
+        carrera.id = data[0].id;
+        carrera.nombre = data[0].nombre;
+        return carrera;
     }
     add(item) {
         throw new Error('Method not implemented.');

@@ -1,58 +1,60 @@
-import { Repository } from '../shared/repository.js'
-import { EntidadEducativa } from './entidadEducativa.entity.js'
-import { db_connection } from '../services/db.js'
+// // import { Repository } from '../shared/repository.js'
+// import { EntidadEducativa } from './entidadEducativa.entity.js'
+// import { db_connection } from '../services/db.js'
 
-const entidadeseducativas: EntidadEducativa[] = [];
 
-export class CarreraRepository implements Repository<EntidadEducativa> {
 
-  public getAll(): EntidadEducativa[] | undefined {
+// export class CarreraRepository implements Repository<EntidadEducativa> {
 
-    db_connection.query("SELECT * FROM entidadeseducativas LIMIT 10", (err: any, rows: any, fields: any) => {
-      for (var i = 0; i < rows.length; i++) {
-        entidadeseducativas.push(new EntidadEducativa(
-          rows[i].cue,
-          rows[i].nombre,
-          rows[i].direccion,
-          rows[i].facultad,
-          rows[i].localidad,
-          rows[i].provincia,
-          rows[i].pais
-        ))
-      }
-    });
+//   public async getAll(): Promise<EntidadEducativa[] | undefined> {
 
-    return entidadeseducativas;
-  }
+//     const entidadeseducativas: EntidadEducativa[] = [];
 
-  public get(item: { id: string }): EntidadEducativa | undefined {
+//     (await db_connection).query("SELECT * FROM entidadeseducativas LIMIT 10", (err: any, rows: any, fields: any) => {
+//       for (var i = 0; i < rows.length; i++) {
+//         entidadeseducativas.push(new EntidadEducativa(
+//           rows[i].cue,
+//           rows[i].nombre,
+//           rows[i].direccion,
+//           rows[i].facultad,
+//           rows[i].localidad,
+//           rows[i].provincia,
+//           rows[i].pais
+//         ))
+//       }
+//     });
 
-    db_connection.query("SELECT * FROM entidadeseducativas WHERE cue = ?", [item.id], (err: any, rows: any, fields: any) => {
-      for (var i = 0; i < rows.length; i++) {
-        entidadeseducativas.push(new EntidadEducativa(
-          rows[i].cue,
-          rows[i].nombre,
-          rows[i].direccion,
-          rows[i].facultad,
-          rows[i].localidad,
-          rows[i].provincia,
-          rows[i].pais))
-      }
-    });
+//     return entidadeseducativas;
+//   }
 
-    return entidadeseducativas.find((entidadEducativa) => entidadEducativa.cue.toString() === item.id)
-  }
+//   public async get(item: { id: string }): Promise<EntidadEducativa | undefined> {
 
-  public add(item: EntidadEducativa): EntidadEducativa | undefined {
-    throw new Error('Method not implemented.')
-  }
+//     const entidadEducativa: EntidadEducativa = {
+//       cue: 0,
+//       nombre: '',
+//       direccion: '',
+//       facultad: '',
+//       localidad: '',
+//       provincia: '',
+//       pais: ''
+//     };
 
-  public update(item: EntidadEducativa): EntidadEducativa | undefined {
-    throw new Error('Method not implemented.')
-  }
 
-  public delete(item: { id: string }): EntidadEducativa | undefined {
-    throw new Error('Method not implemented.')
-  }
+//     return entidadEducativa
+//   }
 
-}
+//   public add(item: EntidadEducativa): Promise<EntidadEducativa | undefined> {
+//     throw new Error('Method not implemented.')
+//   }
+
+//   public update(item: EntidadEducativa): Promise<EntidadEducativa | undefined> {
+//     throw new Error('Method not implemented.')
+//   }
+
+//   public delete(item: { id: string }): Promise<EntidadEducativa | undefined> {
+//     throw new Error('Method not implemented.')
+//   }
+
+// }
+
+

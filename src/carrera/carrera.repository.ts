@@ -2,42 +2,48 @@ import { Repository } from '../shared/repository.js'
 import { Carrera } from './carrera.entity.js'
 import { db_connection } from '../services/db.js'
 
-const carreras: Carrera[] = [];
+
+
 
 export class CarreraRepository implements Repository<Carrera> {
 
-  public getAll(): Carrera[] | undefined {
+  public async getAll(): Promise<Carrera[] | undefined> {
 
-    db_connection.query("SELECT * FROM carreras LIMIT 10", (err: any, rows: any, fields: any) => {
-      for (var i = 0; i < rows.length; i++) {
-        carreras.push(new Carrera(rows[i].id, rows[i].nombre))
-      }
-    });
-    
-    return carreras;
+    const carreras: Carrera[] = [];
+
+    const rows = await db_connection.execute("SELECT * FROM carreras LIMIT 10")
+
+    const data = (JSON.parse(JSON.stringify(rows[0])));
+
+    data.forEach((item: { id: number; nombre: string; }) => carreras.push(item))
+
+    return carreras
 
   }
 
-  public get(item: { id: string }): Carrera | undefined {
+  public async get(item: { id: string }): Promise<Carrera | undefined> {
 
-    db_connection.query("SELECT * FROM carreras WHERE id = ?", [item.id], (err: any, rows: any, fields: any) => {
-      for (var i = 0; i < rows.length; i++) {
-        carreras.push(new Carrera(rows[i].id, rows[i].nombre))
-      }
-    });
+    const carrera: Carrera = { id: 0, nombre: '' }
 
-    return carreras.find((carrera) => carrera.id.toString() === item.id)
+    const row = await db_connection.execute("SELECT * FROM carreras WHERE id = ?", [item.id])
+
+    const data = (JSON.parse(JSON.stringify(row[0])));
+
+    carrera.id = data[0].id;
+    carrera.nombre = data[0].nombre;
+
+    return carrera
   }
-  
-  public add(item: Carrera): Carrera | undefined {
+
+  public add(item: Carrera): Promise<Carrera | undefined> {
     throw new Error('Method not implemented.')
   }
 
-  public update(item: Carrera): Carrera | undefined {
+  public update(item: Carrera): Promise<Carrera | undefined> {
     throw new Error('Method not implemented.')
   }
 
-  public delete(item: { id: string }): Carrera | undefined {
+  public delete(item: { id: string }): Promise<Carrera | undefined> {
     throw new Error('Method not implemented.')
   }
 
