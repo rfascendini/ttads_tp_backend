@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 let Carrera = class Carrera {
 };
 __decorate([
@@ -15,11 +15,11 @@ __decorate([
     __metadata("design:type", Object)
 ], Carrera.prototype, "id", void 0);
 __decorate([
-    Column(),
+    Column({ type: 'varchar', length: 255, nullable: false }),
     __metadata("design:type", Object)
 ], Carrera.prototype, "nombre", void 0);
 Carrera = __decorate([
-    Entity()
+    Entity("carreras")
 ], Carrera);
 export { Carrera };
 //# sourceMappingURL=carrera.entity.js.map

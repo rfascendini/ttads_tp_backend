@@ -1,7 +1,7 @@
-"use strict";
 // import { Request, Response, NextFunction } from 'express'
 // import { CarreraRepository } from './entidadEducativa.repository.js'
 // import { EntidadEducativa } from './entidadEducativa.entity.js'
+export {};
 // const repository = new CarreraRepository()
 // function getAll(req: Request, res: Response) {
 //   repository.getAll().then((data) => res.json(data))

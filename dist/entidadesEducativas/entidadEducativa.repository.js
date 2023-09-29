@@ -1,7 +1,7 @@
-"use strict";
 // import { Repository } from '../shared/repository.js'
 // import { EntidadEducativa } from './entidadEducativa.entity.js'
 // import { db_connection } from '../services/db.js'
+export {};
 // export class CarreraRepository implements Repository<EntidadEducativa> {
 //   public async getAll(): Promise<EntidadEducativa[] | undefined> {
 //     const [entidadEducativa] = await db_connection.query('select * from entidadeseducativas limit 10')

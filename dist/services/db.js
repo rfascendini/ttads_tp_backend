@@ -10,8 +10,6 @@ export const AppDataSource = new DataSource({
     password: "",
     database: "ttads_sistemainscripcion",
     entities: [Carrera],
-    synchronize: true,
-    logging: true
 });
 AppDataSource.initialize()
     .then(() => {
