@@ -10,19 +10,19 @@ export class CarreraRepository implements Repository<EntidadEducativa> {
 
     const entidadeseducativas: EntidadEducativa[] = [];
 
-    (await db_connection).query("SELECT * FROM entidadeseducativas LIMIT 10", (err: any, rows: any, fields: any) => {
-      for (var i = 0; i < rows.length; i++) {
-        entidadeseducativas.push(new EntidadEducativa(
-          rows[i].cue,
-          rows[i].nombre,
-          rows[i].direccion,
-          rows[i].facultad,
-          rows[i].localidad,
-          rows[i].provincia,
-          rows[i].pais
-        ))
-      }
-    });
+    const rows = await db_connection.execute("SELECT * FROM entidadeseducativas LIMIT 10")
+
+    const data = (JSON.parse(JSON.stringify(rows[0])));
+
+    data.forEach((item: {
+      cue: number,
+      nombre: string,
+      direccion: string,
+      facultad: string,
+      localidad: string,
+      provincia: string,
+      pais: string
+    }) => entidadeseducativas.push(item))
 
     return entidadeseducativas;
   }
@@ -39,6 +39,17 @@ export class CarreraRepository implements Repository<EntidadEducativa> {
       pais: ''
     };
 
+    const row = await db_connection.execute("SELECT * FROM entidadesEducativas WHERE id = ?", [item.id])
+    
+    const data = (JSON.parse(JSON.stringify(row[0])));
+
+    entidadEducativa.cue = data[0].id;
+    entidadEducativa.nombre = data[0].nombre;
+    entidadEducativa.direccion = data[0].direccion;
+    entidadEducativa.facultad = data[0].facultad;
+    entidadEducativa.localidad = data[0].localidad;
+    entidadEducativa.provincia = data[0].provincia;
+    entidadEducativa.pais = data[0].pais;
 
     return entidadEducativa
   }

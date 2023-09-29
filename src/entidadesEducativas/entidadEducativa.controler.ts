@@ -5,16 +5,12 @@ import { EntidadEducativa } from './entidadEducativa.entity.js'
 const repository = new CarreraRepository()
 
 function getAll(req: Request, res: Response) {
-  res.json({ data: repository.getAll() })
+  repository.getAll().then((data) => res.json(data))
 }
 
 function get(req: Request, res: Response) {
   const id = req.params.id
-  const entidadEducativa = repository.get({ id })
-  if (!entidadEducativa) {
-    return res.status(404).send({ message: 'EntidadEducativa not found' })
-  }
-  res.json({ data: entidadEducativa })
+  repository.get({ id }).then((data) => res.json(data))
 }
 
 export { getAll, get }
