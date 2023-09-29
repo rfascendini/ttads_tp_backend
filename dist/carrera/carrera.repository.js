@@ -1,24 +1,14 @@
-import { db_connection } from '../services/db.js';
+import { Carrera } from './carrera.entity.js';
+import { AppDataSource } from '../services/db.js';
+const carreraRepository = AppDataSource.getRepository(Carrera);
 export class CarreraRepository {
     async getAll() {
-        const [carreras] = await db_connection.query('select * from carreras limit 10');
+        const carreras = await carreraRepository.find();
+        console.log(carreras);
         return carreras;
-        /*    const carreras: Carrera[] = [];
-        
-            const rows = await db_connection.execute("SELECT * FROM carreras LIMIT 10")
-        
-            const data = (JSON.parse(JSON.stringify(rows[0])));
-        
-            data.forEach((item: { id: number; nombre: string; }) => carreras.push(item))
-        
-            return carreras */
     }
     async get(item) {
-        const carrera = { id: 0, nombre: '' };
-        const row = await db_connection.execute("SELECT * FROM carreras WHERE id = ?", [item.id]);
-        const data = (JSON.parse(JSON.stringify(row[0])));
-        carrera.id = data[0].id;
-        carrera.nombre = data[0].nombre;
+        const carrera = await carreraRepository.findOneBy({ id: parseInt(item.id) });
         return carrera;
     }
     add(item) {

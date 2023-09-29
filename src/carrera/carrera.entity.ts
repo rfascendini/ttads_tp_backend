@@ -1,7 +1,14 @@
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
 
+@Entity()
 export class Carrera {
-  constructor(
-    public id: number,
-    public nombre: string,
-  ) { }
+
+  @PrimaryGeneratedColumn()
+  id: number | undefined
+
+  @Column()
+  nombre: string | undefined
+
 }
+
+

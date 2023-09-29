@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from 'express'
+import { Request, Response } from 'express'
 import { CarreraRepository } from './carrera.repository.js'
 import { Carrera } from './carrera.entity.js'
 
