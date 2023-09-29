@@ -7,9 +7,12 @@ import { db_connection } from '../services/db.js'
 
 export class CarreraRepository implements Repository<Carrera> {
 
-  public async getAll(): Promise<Carrera[] | undefined> {
+   public async getAll(): Promise<Carrera[] | undefined> {
 
-    const carreras: Carrera[] = [];
+    const [carreras] = await db_connection.query('select * from carreras limit 10')
+    return carreras as Carrera[]
+
+/*    const carreras: Carrera[] = [];
 
     const rows = await db_connection.execute("SELECT * FROM carreras LIMIT 10")
 
@@ -17,7 +20,7 @@ export class CarreraRepository implements Repository<Carrera> {
 
     data.forEach((item: { id: number; nombre: string; }) => carreras.push(item))
 
-    return carreras
+    return carreras */
 
   }
 

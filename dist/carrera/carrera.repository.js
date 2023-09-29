@@ -1,11 +1,17 @@
 import { db_connection } from '../services/db.js';
 export class CarreraRepository {
     async getAll() {
-        const carreras = [];
-        const rows = await db_connection.execute("SELECT * FROM carreras LIMIT 10");
-        const data = (JSON.parse(JSON.stringify(rows[0])));
-        data.forEach((item) => carreras.push(item));
+        const [carreras] = await db_connection.query('select * from carreras limit 10');
         return carreras;
+        /*    const carreras: Carrera[] = [];
+        
+            const rows = await db_connection.execute("SELECT * FROM carreras LIMIT 10")
+        
+            const data = (JSON.parse(JSON.stringify(rows[0])));
+        
+            data.forEach((item: { id: number; nombre: string; }) => carreras.push(item))
+        
+            return carreras */
     }
     async get(item) {
         const carrera = { id: 0, nombre: '' };
