@@ -39,7 +39,7 @@ export class CarreraRepository implements Repository<EntidadEducativa> {
       pais: ''
     };
 
-    const row = await db_connection.execute("SELECT * FROM entidadesEducativas WHERE id = ?", [item.id])
+    const row = await db_connection.execute("SELECT * FROM entidadesEducativas WHERE cue = ?", [item.id])
     
     const data = (JSON.parse(JSON.stringify(row[0])));
 
