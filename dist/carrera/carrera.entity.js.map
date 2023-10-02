@@ -1,1 +1,0 @@
-{"version":3,"file":"carrera.entity.js","sourceRoot":"","sources":["../../src/carrera/carrera.entity.ts"],"names":[],"mappings":";;;;;;;;;AAAA,OAAO,EAAE,MAAM,EAAE,sBAAsB,EAAE,MAAM,EAAE,MAAM,SAAS,CAAA;AAGzD,IAAM,OAAO,GAAb,MAAM,OAAO;CAQnB,CAAA;AALC;IADC,sBAAsB,EAAE;;mCACH;AAGtB;IADC,MAAM,EAAE;;uCACiB;AANf,OAAO;IADnB,MAAM,EAAE;GACI,OAAO,CAQnB"}

@@ -1,0 +1,6 @@
+### obtener todos los facultades
+GET http://localhost:3000/api/facultades
+
+
+### obtener un facultad
+GET http://localhost:3000/api/facultades/15

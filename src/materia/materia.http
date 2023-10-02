@@ -1,0 +1,6 @@
+### obtener todos los materias
+GET http://localhost:3000/api/materias
+
+
+### obtener un materia
+GET http://localhost:3000/api/materias/15

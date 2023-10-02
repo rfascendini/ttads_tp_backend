@@ -1,6 +1,0 @@
-### obtener todos los carreras
-GET http://localhost:3000/api/entidadesEducativas
-
-
-### obtener un entidadEducativa
-GET http://localhost:3000/api/entidadesEducativas/25
