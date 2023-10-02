@@ -13,11 +13,7 @@ export const AppDataSource = new DataSource({
   username: "root",
   password: "",
   database: "ttads_sistemainscripcion",
-<<<<<<< HEAD
   entities: [Carrera, EntidadEducativa, Usuario, Facultad, Materia],
-=======
-  entities: [Carrera],
->>>>>>> db91eb72b4d96ebb56da4ddb8d9bdfff7f7ca7fa
 })
 
 AppDataSource.initialize()
