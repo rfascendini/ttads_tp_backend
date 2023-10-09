@@ -1,4 +1,5 @@
 import express from 'express'
+import { expressjwt, Request as JWTRequest } from "express-jwt";
 import cors from 'cors'
 import "reflect-metadata"
 import { carreraRouter } from './carrera/carrera.routes.js'

@@ -1,6 +1,7 @@
 import { Request, Response } from 'express'
 import { UsuarioRepository } from './usuario.repository.js'
 
+
 const repository = new UsuarioRepository()
 
 function getAll(req: Request, res: Response) {
@@ -12,4 +13,7 @@ function get(req: Request, res: Response) {
   repository.get({ id }).then((data) => res.json(data))
 }
 
+
 export { getAll, get }
+
+
