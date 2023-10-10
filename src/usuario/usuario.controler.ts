@@ -1,7 +1,6 @@
 import { Request, Response } from 'express'
 import { UsuarioRepository } from './usuario.repository.js'
 
-
 const repository = new UsuarioRepository()
 
 function getAll(req: Request, res: Response) {
@@ -14,6 +13,6 @@ function get(req: Request, res: Response) {
 }
 
 
-export { getAll, get }
+export { getAll, get, repository}
 
 

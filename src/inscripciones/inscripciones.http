@@ -1,0 +1,6 @@
+### obtener todos los inscripciones
+GET http://localhost:3000/api/inscripciones
+
+
+### obtener un inscripcion
+GET http://localhost:3000/api/inscripciones/247

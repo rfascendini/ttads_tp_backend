@@ -5,6 +5,7 @@ import { EntidadEducativa } from '../entidadesEducativa/entidadEducativa.entity.
 import { Usuario } from '../usuario/usuario.entity.js'
 import { Facultad } from "../facultad/facultad.entity.js"
 import { Materia } from "../materia/materia.entity.js"
+import { Inscripcion } from "../inscripciones/inscripciones.entity.js"
 
 export const AppDataSource = new DataSource({
   type: "mysql",
@@ -13,7 +14,7 @@ export const AppDataSource = new DataSource({
   username: "root",
   password: "",
   database: "ttads_sistemainscripcion",
-  entities: [Carrera, EntidadEducativa, Usuario, Facultad, Materia],
+  entities: [Carrera, EntidadEducativa, Usuario, Facultad, Materia, Inscripcion],
 })
 
 AppDataSource.initialize()

@@ -1,5 +1,4 @@
 import express from 'express'
-import { expressjwt, Request as JWTRequest } from "express-jwt";
 import cors from 'cors'
 import "reflect-metadata"
 import { carreraRouter } from './carrera/carrera.routes.js'
@@ -7,6 +6,7 @@ import { entidadEducativaRouter } from './entidadesEducativa/entidadEducativa.ro
 import { usuarioRouter } from './usuario/usuario.routes.js'
 import { facultadRouter } from './facultad/facultad.routes.js'
 import { materiaRouter } from './materia/materia.routes.js'
+import { inscripcionRouter } from './inscripciones/inscripciones.routes.js'
 
 const app = express()
 app.use(express.json())
@@ -17,6 +17,7 @@ app.use('/api/entidadesEducativas', entidadEducativaRouter)
 app.use('/api/usuarios', usuarioRouter)
 app.use('/api/facultades', facultadRouter)
 app.use('/api/materias', materiaRouter)
+app.use('/api/inscripciones', inscripcionRouter)
 
 app.use((_, res) => {
   return res.status(404).send({ message: 'Resource not found' })

@@ -16,6 +16,11 @@ export class UsuarioRepository implements Repository<Usuario> {
     return usuario as Usuario
   }
 
+  public async getByUsername(item: { userName: string }): Promise<Usuario | undefined> {
+    const usuario = await usuarioRepository.findOneBy({ userName: item.userName })
+    return usuario as Usuario
+  }
+
   public add(item: Usuario): Promise<Usuario | undefined> {
     throw new Error('Method not implemented.')
   }
