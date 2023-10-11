@@ -1,5 +1,6 @@
 import { Request, Response } from 'express'
 import { UsuarioRepository } from './usuario.repository.js'
+import { createToken } from '../utils/token.js'
 
 const repository = new UsuarioRepository()
 
@@ -26,7 +27,7 @@ function login(req: Request, res: Response) {
         throw new Error("El Usuario/Contraseña no es correcto.")
       }
       
-      res.status(200).json({...data, token: 'token-secreto'})
+      res.status(200).json({...data, token: createToken(username)})
     })
     .catch((error) => res.status(500).send(error.message))
 }
