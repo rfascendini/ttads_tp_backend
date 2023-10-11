@@ -1,4 +1,5 @@
 import express from 'express'
+import bodyParser from 'body-parser'
 import cors from 'cors'
 import "reflect-metadata"
 import { carreraRouter } from './carrera/carrera.routes.js'
@@ -11,6 +12,7 @@ import { inscripcionRouter } from './inscripciones/inscripciones.routes.js'
 const app = express()
 app.use(express.json())
 app.use(cors())
+app.use(bodyParser.json())
 
 app.use('/api/carreras', carreraRouter)
 app.use('/api/entidadesEducativas', entidadEducativaRouter)
@@ -18,6 +20,7 @@ app.use('/api/usuarios', usuarioRouter)
 app.use('/api/facultades', facultadRouter)
 app.use('/api/materias', materiaRouter)
 app.use('/api/inscripciones', inscripcionRouter)
+
 
 app.use((_, res) => {
   return res.status(404).send({ message: 'Resource not found' })

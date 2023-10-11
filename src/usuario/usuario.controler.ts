@@ -12,7 +12,25 @@ function get(req: Request, res: Response) {
   repository.get({ id }).then((data) => res.json(data))
 }
 
+function login(req: Request, res: Response) {
 
-export { getAll, get, repository}
+  const { username, password } = req.body;
+
+  if (!username && !password) {
+    res.status(500).send("No se enviaron parametros.")
+  }
+
+  repository.getByUsername({ userName: username, password: password })
+    .then((data) => {
+      if (data == null) {
+        throw new Error("El Usuario/Contraseña no es correcto.")
+      }
+      
+      res.status(200).json({...data, token: 'token-secreto'})
+    })
+    .catch((error) => res.status(500).send(error.message))
+}
+
+export { getAll, get, login }
 
 

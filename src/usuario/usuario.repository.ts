@@ -16,8 +16,8 @@ export class UsuarioRepository implements Repository<Usuario> {
     return usuario as Usuario
   }
 
-  public async getByUsername(item: { userName: string }): Promise<Usuario | undefined> {
-    const usuario = await usuarioRepository.findOneBy({ userName: item.userName })
+  public async getByUsername(item: { userName: string, password: string }): Promise<Usuario | undefined> {
+    const usuario = await usuarioRepository.findOneBy({userName: item.userName,password: item.password})
     return usuario as Usuario
   }
 
