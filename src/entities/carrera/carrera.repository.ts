@@ -1,6 +1,6 @@
-import { Repository } from '../shared/repository.js'
+import { Repository } from '../../shared/repository.js'
 import { Carrera } from './carrera.entity.js'
-import { AppDataSource } from '../services/db.js'
+import { AppDataSource } from '../../services/db.js'
 const carreraRepository = AppDataSource.getRepository(Carrera)
 
 

@@ -1,6 +1,6 @@
-import { Repository } from '../shared/repository.js'
+import { Repository } from '../../shared/repository.js'
 import { EntidadEducativa } from './entidadEducativa.entity.js'
-import { AppDataSource } from '../services/db.js'
+import { AppDataSource } from '../../services/db.js'
 const entidadEducativaRepository = AppDataSource.getRepository(EntidadEducativa)
 
 export class EntidadEducativaRepository implements Repository<EntidadEducativa> {

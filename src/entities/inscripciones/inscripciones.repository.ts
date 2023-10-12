@@ -1,6 +1,6 @@
-import { Repository } from '../shared/repository.js'
+import { Repository } from '../../shared/repository.js'
 import { Inscripcion } from './inscripciones.entity.js'
-import { AppDataSource } from '../services/db.js'
+import { AppDataSource } from '../../services/db.js'
 const inscripcionRepository = AppDataSource.getRepository(Inscripcion)
 
 

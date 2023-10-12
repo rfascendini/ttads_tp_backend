@@ -2,19 +2,32 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import "reflect-metadata"
-import { carreraRouter } from './carrera/carrera.routes.js'
-import { entidadEducativaRouter } from './entidadesEducativa/entidadEducativa.routes.js'
-import { usuarioRouter } from './usuario/usuario.routes.js'
-import { facultadRouter } from './facultad/facultad.routes.js'
-import { materiaRouter } from './materia/materia.routes.js'
-import { inscripcionRouter } from './inscripciones/inscripciones.routes.js'
+import { carreraRouter } from './entities/carrera/carrera.routes.js'
+import { entidadEducativaRouter } from './entities/entidadesEducativa/entidadEducativa.routes.js'
+import { usuarioRouter } from './entities/usuario/usuario.routes.js'
+import { facultadRouter } from './entities/facultad/facultad.routes.js'
+import { materiaRouter } from './entities/materia/materia.routes.js'
+import { inscripcionRouter } from './entities/inscripciones/inscripciones.routes.js'
+import { login } from './public/auth.login.js'
+
+
 
 const app = express()
 app.use(express.json())
 app.use(cors())
 app.use(bodyParser.json())
 
-app.use('/api/carreras', carreraRouter)
+
+
+
+const isLogged = function (req: any, res: any, next: any) {
+  console.log();
+  next();
+}
+
+
+app.post('/api/usuarios/login', login)
+app.use('/api/carreras', isLogged, carreraRouter)
 app.use('/api/entidadesEducativas', entidadEducativaRouter)
 app.use('/api/usuarios', usuarioRouter)
 app.use('/api/facultades', facultadRouter)

@@ -1,11 +1,11 @@
 import "reflect-metadata"
 import { DataSource } from 'typeorm'
-import { Carrera } from '../carrera/carrera.entity.js'
-import { EntidadEducativa } from '../entidadesEducativa/entidadEducativa.entity.js'
-import { Usuario } from '../usuario/usuario.entity.js'
-import { Facultad } from "../facultad/facultad.entity.js"
-import { Materia } from "../materia/materia.entity.js"
-import { Inscripcion } from "../inscripciones/inscripciones.entity.js"
+import { Carrera } from '../entities/carrera/carrera.entity.js'
+import { EntidadEducativa } from '../entities/entidadesEducativa/entidadEducativa.entity.js'
+import { Usuario } from '../entities/usuario/usuario.entity.js'
+import { Facultad } from "../entities/facultad/facultad.entity.js"
+import { Materia } from "../entities/materia/materia.entity.js"
+import { Inscripcion } from "../entities/inscripciones/inscripciones.entity.js"
 
 export const AppDataSource = new DataSource({
   type: "mysql",
