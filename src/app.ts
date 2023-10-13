@@ -16,23 +16,20 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 app.use(bodyParser.json())
-
-
-
-
-const isLogged = function (req: any, res: any, next: any) {
-  console.log();
-  next();
-}
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+}));
 
 
 app.post('/api/usuarios/login', login)
-app.use('/api/carreras', isLogged, carreraRouter)
+app.use('/api/carreras', carreraRouter)
 app.use('/api/entidadesEducativas', entidadEducativaRouter)
 app.use('/api/usuarios', usuarioRouter)
 app.use('/api/facultades', facultadRouter)
 app.use('/api/materias', materiaRouter)
 app.use('/api/inscripciones', inscripcionRouter)
+
+
 
 
 app.use((_, res) => {
