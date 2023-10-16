@@ -4,7 +4,7 @@ import { createToken } from '../utils/token.js'
 
 const repository = new UsuarioRepository()
 
- function login(req: Request, res: Response): any {
+function login(req: Request, res: Response): any {
 
   const { username, password } = req.body;
 
@@ -13,12 +13,12 @@ const repository = new UsuarioRepository()
   }
 
   repository.getByUsername({ userName: username, password: password })
-    .then((data) => {
-      if (data == null) {
-        throw new Error("El Usuario/Contraseña no es correcto.")
+    .then((user) => {
+      if (user) {
+        res.status(200).json({ status: 'success', message: 'Login successful', user: { ...user, token: createToken(username) } });
+      } else {
+        res.status(401).json({ status: 'error', message: 'Invalid credentials' });
       }
-
-      res.status(200).json({...data, token: createToken(username)})
 
     })
     .catch((error) => res.status(500).send(error.message))
