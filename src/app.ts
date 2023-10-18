@@ -9,6 +9,7 @@ import { facultadRouter } from './entities/facultad/facultad.routes.js'
 import { materiaRouter } from './entities/materia/materia.routes.js'
 import { inscripcionRouter } from './entities/inscripciones/inscripciones.routes.js'
 import { login } from './public/auth.login.js'
+import { authToken } from './public/auth.token.js'
 
 
 
@@ -22,6 +23,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 
 app.post('/api/usuarios/login', login)
+app.post('/api/usuarios/verifyAuth', authToken)
 app.use('/api/carreras', carreraRouter)
 app.use('/api/entidadesEducativas', entidadEducativaRouter)
 app.use('/api/usuarios', usuarioRouter)

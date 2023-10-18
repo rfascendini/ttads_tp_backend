@@ -11,26 +11,17 @@ function createToken(username: string) {
   };
 
   // Create the JWT
-  const token = jwt.sign(payload, secretKey, { algorithm: 'HS256' })
+  const token = jwt.sign(payload.toString(), secretKey, { algorithm: 'HS256' })
 
-  return token;
+  return token.toString();
 
 }
 
-function verifyToken(token: any) {
+function verifyToken(token: string) {
 
-  try {
-    // Verify the token
     const decodedToken = jwt.verify(token, secretKey);
-
-    // The token is valid, and decodedToken contains the payload
+    
     return decodedToken;
-
-  } catch (error) {
-    // Token verification failed
-    throw new Error("Token verification failed.")
-  }
-
 
 }
 

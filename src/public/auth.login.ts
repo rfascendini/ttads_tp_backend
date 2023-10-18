@@ -9,15 +9,15 @@ function login(req: Request, res: Response): any {
   const { username, password } = req.body;
 
   if (!username && !password) {
-    res.status(500).send("No se enviaron parametros.")
+    res.status(500).send({ status: 'error', message: 'No se enviaron parametros.'})
   }
 
   repository.getByUsername({ userName: username, password: password })
     .then((user) => {
       if (user) {
-        res.status(200).json({ status: 'success', message: 'Login successful', user: { ...user, token: createToken(username) } });
+        res.status(200).json({ status: 'success', message: 'Se ha iniciado sesión correctamente!', user: { ...user, token: createToken(username) } });
       } else {
-        res.status(401).json({ status: 'error', message: 'Invalid credentials' });
+        res.status(200).json({ status: 'error', message: 'Las credenciales ingresadas son invalidas.' });
       }
 
     })
@@ -26,6 +26,3 @@ function login(req: Request, res: Response): any {
 
 
 export { login }
-
-
-
