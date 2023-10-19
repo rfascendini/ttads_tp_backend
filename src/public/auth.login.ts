@@ -9,7 +9,7 @@ function login(req: Request, res: Response): any {
   const { username, password } = req.body;
 
   if (!username && !password) {
-    res.status(500).send({ status: 'error', message: 'No se enviaron parametros.'})
+    res.status(500).send({ status: 'error', message: 'No se enviaron parametros.' })
   }
 
   repository.getByUsername({ userName: username, password: password })
@@ -25,4 +25,12 @@ function login(req: Request, res: Response): any {
 }
 
 
-export { login }
+function logout(req: Request, res: Response): any {
+
+  res.status(200).json({ status: 'success', message: '¡La sesión ha finalizado!' });
+
+}
+
+
+
+export { login, logout }
