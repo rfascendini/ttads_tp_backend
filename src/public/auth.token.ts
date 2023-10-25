@@ -4,7 +4,7 @@ import { verifyToken } from '../utils/token.js'
 function authToken(req: Request, res: Response): any {
 
   const { token } = req.body;
-
+  
   if (!token) {
     res.status(500).json({ status: 'error', message: 'No se enviaron parametros.' });
   }

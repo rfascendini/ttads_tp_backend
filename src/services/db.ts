@@ -5,7 +5,7 @@ import { EntidadEducativa } from '../entities/entidadesEducativa/entidadEducativ
 import { Usuario } from '../entities/usuario/usuario.entity.js'
 import { Facultad } from "../entities/facultad/facultad.entity.js"
 import { Materia } from "../entities/materia/materia.entity.js"
-import { Inscripcion } from "../entities/inscripciones/inscripciones.entity.js"
+import { Inscripcion } from "../entities/inscripcion/inscripciones.entity.js"
 
 export const AppDataSource = new DataSource({
   type: "mysql",

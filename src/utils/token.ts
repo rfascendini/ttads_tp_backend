@@ -17,7 +17,7 @@ function createToken(username: string) {
 
 }
 
-function verifyToken(token: any) {
+function verifyToken(token: string) {
 
     const decodedToken = jwt.verify(token, secretKey);
     

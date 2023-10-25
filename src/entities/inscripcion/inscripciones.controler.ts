@@ -12,4 +12,10 @@ function get(req: Request, res: Response) {
   repository.get({ id }).then((data) => res.json(data))
 }
 
-export { getAll, get }
+function getByDNI(req: Request, res: Response) {
+  const dni = req.params.dni
+  const access_token = req.params.access_token
+  repository.getByDNI({ dni, access_token }).then((data) => res.json(data))
+}
+
+export { getAll, get, getByDNI}

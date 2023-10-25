@@ -12,4 +12,5 @@ function get(req: Request, res: Response) {
   repository.get({ id }).then((data) => res.json(data))
 }
 
-export { getAll, get }
+
+export { getAll, get}

@@ -7,6 +7,8 @@ export class Inscripcion {
 
   @Column({ type: "varchar" }) alumnonumerodocumento: string | undefined
 
+  @Column({ type: "varchar" }) nroTramiteDni: string | undefined
+
   @Column({ type: "varchar" }) contactoemail: string | undefined
 
   @Column({ type: "varchar" }) access_token: string | undefined
