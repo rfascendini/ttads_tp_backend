@@ -1,6 +1,8 @@
 import { Repository } from '../../shared/repository.js'
 import { Inscripcion } from './inscripciones.entity.js'
 import { AppDataSource } from '../../services/db.js'
+import { error } from 'console'
+
 const inscripcionRepository = AppDataSource.getRepository(Inscripcion)
 
 export class InscripcionRepository implements Repository<Inscripcion> {
@@ -20,16 +22,16 @@ export class InscripcionRepository implements Repository<Inscripcion> {
     return inscripcion as Inscripcion
   }
 
-  public add(item: Inscripcion): Promise<Inscripcion | undefined> {
-    throw new Error('Method not implemented.')
+  public async add(item: Inscripcion): Promise<Inscripcion | undefined> {
+    throw error;
   }
 
-  public update(item: Inscripcion): Promise<Inscripcion | undefined> {
-    throw new Error('Method not implemented.')
+  public async update(item: Inscripcion): Promise<Inscripcion | undefined> {
+    throw error;
   }
 
-  public delete(item: { id: string }): Promise<Inscripcion | undefined> {
-    throw new Error('Method not implemented.')
+  public async delete(item: { id: string }): Promise<Inscripcion | undefined> {
+    throw error;
   }
 
 }

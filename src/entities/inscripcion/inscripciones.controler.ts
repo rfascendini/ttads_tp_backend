@@ -18,4 +18,16 @@ function getByDNI(req: Request, res: Response) {
   repository.getByDNI({ dni, access_token }).then((data) => res.json(data))
 }
 
-export { getAll, get, getByDNI}
+function add(req: Request, res: Response) {
+
+}
+
+function update(req: Request, res: Response) {
+
+}
+
+function remove(req: Request, res: Response) {
+
+}
+
+export { getAll, get, getByDNI, add, update, remove}
