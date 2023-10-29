@@ -44,7 +44,7 @@ function inscriptionLogin(req: Request, res: Response): any {
       if (inscripcion) {
         res.status(200).json({ status: 'success', message: 'Se ha iniciado sesión correctamente!', inscripcion: { ...inscripcion, token: createToken(dni) } });
       } else {
-        res.status(200).json({ status: 'error', message: 'Las credenciales ingresadas son invalidas.' });
+        res.status(401).json({ status: 'error', message: 'Las credenciales ingresadas son invalidas.' });
       }
 
     })
