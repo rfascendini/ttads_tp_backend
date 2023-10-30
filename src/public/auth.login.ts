@@ -20,7 +20,7 @@ function adminLogin(req: Request, res: Response): any {
       if (user) {
         res.status(200).json({ status: 'success', message: 'Se ha iniciado sesión correctamente!', user: { ...user, token: createToken(username) } });
       } else {
-        res.status(200).json({ status: 'error', message: 'Las credenciales ingresadas son invalidas.' });
+        res.status(401).json({ status: 'error', message: 'Las credenciales ingresadas son invalidas.' });
       }
 
     })

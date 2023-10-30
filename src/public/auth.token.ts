@@ -1,9 +1,8 @@
-import { Request, Response } from 'express'
 import { verifyToken } from '../utils/token.js'
 
-function authToken(req: Request, res: Response): any {
+function authToken(req: any, res: any): any {
 
-  const { token } = req.body;
+  const token = req.headers.authorization;
   
   if (!token) {
     res.status(500).json({ status: 'error', message: 'No se enviaron parametros.' });
