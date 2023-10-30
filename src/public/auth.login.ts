@@ -30,8 +30,6 @@ function adminLogin(req: Request, res: Response): any {
 
 function inscriptionLogin(req: Request, res: Response): any {
 
-  console.log(req.body);
-  
   const dni : string = req.body.dni;
   const access_token : string = req.body.token;
 

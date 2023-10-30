@@ -14,7 +14,7 @@ function authToken(req: Request, res: Response): any {
   if (tokenVerified) {
     res.status(200).json({ status: 'success', message: 'Token válido'});
   } else {
-    res.status(200).json({ status: 'error', message: 'Token inexistente o expirado.' });
+    res.status(419).json({ status: 'error', message: 'Token inexistente o expirado.' });
   }
 }
 
