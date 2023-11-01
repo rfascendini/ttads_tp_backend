@@ -23,7 +23,8 @@ export class InscripcionRepository implements Repository<Inscripcion> {
   }
 
   public async add(item: Inscripcion): Promise<Inscripcion | undefined> {
-    throw error;
+    const inscripcion = await inscripcionRepository.save(item)
+    return inscripcion as Inscripcion
   }
 
   public async update(item: Inscripcion): Promise<Inscripcion | undefined> {

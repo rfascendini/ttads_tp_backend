@@ -1,3 +1,4 @@
+
 import { verifyToken } from '../utils/token.js'
 
 function authToken(req: any, res: any): any {

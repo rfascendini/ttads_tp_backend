@@ -19,10 +19,24 @@ function createToken(username: string) {
 
 function verifyToken(token: string) {
 
-    const decodedToken = jwt.verify(token, secretKey);
-    
-    return decodedToken;
+  const decodedToken = jwt.verify(token, secretKey);
+
+  return decodedToken;
 
 }
 
-export { createToken, verifyToken }
+function generateRandomToken(length: number): string {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let token = '';
+
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    token += characters.charAt(randomIndex);
+  }
+
+  return token;
+}
+
+export { createToken, verifyToken, generateRandomToken}
+
+
