@@ -30,9 +30,8 @@ function add(req: Request, res: Response) {
 
   repository.add(inscripcion)
     .then((inscripcion) => {
-      console.log(inscripcion);
-      if (inscripcion) {
-        res.status(200).json({ status: 'success', message: 'Se ha agregado una nueva inscripción!', inscripcion : inscripcion });
+      if (inscripcion != null) {
+        res.status(200).json({ status: 'success', message: '¡Su inscripción se ha registrado correctamente! Para continuar con el formulario se ha enviado un instructivo al correo electrónico ingresado.', inscripcion : inscripcion });
       } else {
         res.status(420).json({ status: 'error', message: 'Ya existe un usuario con esos datos.' });
       }
