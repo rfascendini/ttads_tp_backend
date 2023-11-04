@@ -1,0 +1,3 @@
+### obtener todos los configuracionesParametros
+GET http://localhost:3000/api/configuracionesParametros
+

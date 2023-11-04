@@ -10,6 +10,7 @@ import { materiaRouter } from './entities/materia/materia.routes.js'
 import { inscripcionRouter } from './entities/inscripcion/inscripciones.routes.js'
 import { inscriptionLogin, adminLogin } from './public/auth.login.js'
 import { authToken } from './public/auth.token.js'
+import { configuracionParametroRouter } from './entities/configuracionParametros/configuracionParametros.routes.js'
 
 const app = express()
 app.use(express.json())
@@ -26,6 +27,7 @@ app.use('/api/usuarios', usuarioRouter)
 app.use('/api/facultades', facultadRouter)
 app.use('/api/materias', materiaRouter)
 app.use('/api/inscripciones', inscripcionRouter)
+app.use('/api/configuracionesParametros', configuracionParametroRouter)
 
 
 app.use((_, res) => {
