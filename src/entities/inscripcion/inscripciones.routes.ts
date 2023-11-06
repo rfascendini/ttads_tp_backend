@@ -10,3 +10,4 @@ inscripcionRouter.post('/', add)
 inscripcionRouter.put('/:id', middleware, update)
 inscripcionRouter.patch('/:id', middleware, update)
 inscripcionRouter.delete('/:id', middleware, remove)
+
