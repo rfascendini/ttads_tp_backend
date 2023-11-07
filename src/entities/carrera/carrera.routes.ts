@@ -1,6 +1,6 @@
 import { Router } from 'express'
-import { getAll, get } from './carrera.controler.js'
-import { middleware } from '../../middlewares/auth.token.middleware.js'
+import { getAll, get } from './carrera.controler.ts'
+import { middleware } from '../../middlewares/auth.token.middleware.ts'
 
 export const carreraRouter = Router()
 

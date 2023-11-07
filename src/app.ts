@@ -2,15 +2,16 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import "reflect-metadata"
-import { carreraRouter } from './entities/carrera/carrera.routes.js'
-import { entidadEducativaRouter } from './entities/entidadesEducativa/entidadEducativa.routes.js'
-import { usuarioRouter } from './entities/usuario/usuario.routes.js'
-import { facultadRouter } from './entities/facultad/facultad.routes.js'
-import { materiaRouter } from './entities/materia/materia.routes.js'
-import { inscripcionRouter } from './entities/inscripcion/inscripciones.routes.js'
-import { inscriptionLogin, adminLogin } from './public/auth.login.js'
-import { authToken } from './public/auth.token.js'
-import { configuracionParametroRouter } from './entities/configuracionParametros/configuracionParametros.routes.js'
+import { carreraRouter } from './entities/carrera/carrera.routes.ts'
+import { entidadEducativaRouter } from './entities/entidadesEducativa/entidadEducativa.routes.ts'
+import { usuarioRouter } from './entities/usuario/usuario.routes.ts'
+import { facultadRouter } from './entities/facultad/facultad.routes.ts'
+import { materiaRouter } from './entities/materia/materia.routes.ts'
+import { inscripcionRouter } from './entities/inscripcion/inscripciones.routes.ts'
+import { inscriptionLogin, adminLogin } from './public/auth.login.ts'
+import { authToken } from './public/auth.token.ts'
+import { configuracionParametroRouter } from './entities/configuracionParametros/configuracionParametros.routes.ts'
+
 
 const app = express()
 app.use(express.json())
@@ -37,3 +38,6 @@ app.use((_, res) => {
 app.listen(3000, () => {
   console.log('Server runnning on http://localhost:3000/')
 })
+
+
+export { app }
