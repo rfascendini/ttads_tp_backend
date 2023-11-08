@@ -1,6 +1,5 @@
 
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm"
-import { Materia } from "../materia/materia.entity.js"
 
 @Entity("carreras")
 export class Carrera {

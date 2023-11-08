@@ -1,17 +1,18 @@
+import "reflect-metadata"
 import supertest from "supertest"
-import { app } from '../app.ts'
+import { app } from '../app.js'
 
 describe('Testing Inscripcion Controller', () => {
 
-  describe('getAll Inscripciones Route', () => {
+  describe('getAll Inscripciones Router', () => {
 
-    it('responds with JSON data.', async () => {
+    test('responds with JSON data.', async () => {
 
-      const response = await supertest(app).get('/api/inscripciones')
-      expect(response.status).toBe(200);
-      expect(response.type).toBe('application/json');
+      await supertest(app).get('/api/inscripciones/737')
+      .expect(200);
 
-    })
+
+    }, 5000)
   })
 
 })

@@ -44,11 +44,27 @@ export class InscripcionRepository implements Repository<Inscripcion> {
   }
 
   public async update(item: Inscripcion): Promise<Inscripcion | undefined> {
-    throw error;
+    const inscripcionUpdate = await inscripcionRepository.findOneBy({
+      id: item.id,
+    })
+    if (inscripcionUpdate != null) {
+      const inscripcion = await inscripcionRepository.save(item)
+      return inscripcion as Inscripcion
+    }
   }
 
-  public async delete(item: { id: string }): Promise<Inscripcion | undefined> {
-    throw error;
+  public async delete(item: { id: string }): Promise<any> {
+
+    const inscripcionDelete = await inscripcionRepository.findOneBy({
+      id: parseInt(item.id)
+    })
+
+    if (inscripcionDelete != null) {
+      await inscripcionRepository.delete(item.id)
+      return 1
+    } else {
+      return 0
+    }
   }
 
 }

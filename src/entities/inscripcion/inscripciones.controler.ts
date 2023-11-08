@@ -31,7 +31,7 @@ function add(req: Request, res: Response) {
   repository.add(inscripcion)
     .then((inscripcion) => {
       if (inscripcion != null) {
-        res.status(200).json({ status: 'success', message: '¡Su inscripción se ha registrado correctamente! Para continuar con el formulario se ha enviado un instructivo al correo electrónico ingresado.', inscripcion : inscripcion });
+        res.status(200).json({ status: 'success', message: '¡Su inscripción se ha registrado correctamente! Para continuar con el formulario se ha enviado un instructivo al correo electrónico ingresado.', inscripcion: inscripcion });
       } else {
         res.status(420).json({ status: 'error', message: 'Ya existe un usuario con esos datos.' });
       }
@@ -42,6 +42,26 @@ function add(req: Request, res: Response) {
 }
 
 function update(req: Request, res: Response) {
+  
+  const inscripcion = new Inscripcion()
+  inscripcion.access_token = req.body.nroTramiteDni
+  inscripcion.contactoemail = req.body.contactoemail
+  inscripcion.nroTramiteDni = req.body.nroTramiteDni
+  inscripcion.alumnonumerodocumento = req.body.alumnonumerodocumento
+  inscripcion.alumnonombres = req.body.alumnonombres
+  inscripcion.alumnoapellido = req.body.alumnoapellido
+
+  repository.update(inscripcion)
+    .then((inscripcion) => {
+      if (inscripcion != null) {
+        res.status(200).json({ status: 'success', message: '¡La inscripción se ha actualizaco correctamente!', inscripcion: inscripcion });
+      } else {
+        res.status(420).json({ status: 'error', message: 'ERROR. No se pudo actualizar los datos de la inscripción.' });
+      }
+
+    })
+    .catch((error) => res.status(500).send(error.message))
+
 
 }
 

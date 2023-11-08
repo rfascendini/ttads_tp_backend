@@ -13,8 +13,6 @@
     "skipLibCheck": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "noEmit":true,
-    "allowImportingTsExtensions": true,
     
   },
   "include": ["src/**/*", "**/*.ts"],
