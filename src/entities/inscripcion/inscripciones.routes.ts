@@ -4,10 +4,10 @@ import { middleware } from '../../middlewares/auth.token.middleware.js'
 
 export const inscripcionRouter = Router()
 
-inscripcionRouter.get('/', getAll)
+inscripcionRouter.get('/',middleware, getAll)
 inscripcionRouter.get('/:id', get)
 inscripcionRouter.post('/', add)
-inscripcionRouter.put('/:id', update)
-inscripcionRouter.patch('/:id', update)
-inscripcionRouter.delete('/:id', remove)
+inscripcionRouter.put('/:id',middleware, update)
+inscripcionRouter.patch('/:id',middleware, update)
+inscripcionRouter.delete('/:id',middleware, remove)
 

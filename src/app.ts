@@ -1,6 +1,7 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+import dotenv from 'dotenv';
 import { carreraRouter } from './entities/carrera/carrera.routes.js'
 import { entidadEducativaRouter } from './entities/entidadesEducativa/entidadEducativa.routes.js'
 import { usuarioRouter } from './entities/usuario/usuario.routes.js'
@@ -14,6 +15,7 @@ import { configuracionParametroRouter } from './entities/configuracionParametros
 const app = express()
 app.use(express.json())
 app.use(cors())
+dotenv.config();
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -33,7 +35,7 @@ app.use((_, res) => {
   return res.status(404).send({ message: 'Resource not found' })
 })
 
-app.listen(3000, () => {
+app.listen(process.env.APP_PORT, () => {
   console.log('Server runnning on http://localhost:3000/')
 })
 

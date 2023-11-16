@@ -42,21 +42,15 @@ function add(req: Request, res: Response) {
 }
 
 function update(req: Request, res: Response) {
-  
-  const inscripcion = new Inscripcion()
-  inscripcion.access_token = req.body.nroTramiteDni
-  inscripcion.contactoemail = req.body.contactoemail
-  inscripcion.nroTramiteDni = req.body.nroTramiteDni
-  inscripcion.alumnonumerodocumento = req.body.alumnonumerodocumento
-  inscripcion.alumnonombres = req.body.alumnonombres
-  inscripcion.alumnoapellido = req.body.alumnoapellido
+
+  const inscripcion: Inscripcion = req.body
 
   repository.update(inscripcion)
     .then((inscripcion) => {
       if (inscripcion != null) {
-        res.status(200).json({ status: 'success', message: '¡La inscripción se ha actualizaco correctamente!', inscripcion: inscripcion });
+        res.status(200).json({ status: 'success', message: '¡La inscripción se ha actualizado correctamente!', inscripcion: inscripcion });
       } else {
-        res.status(420).json({ status: 'error', message: 'ERROR. No se pudo actualizar los datos de la inscripción.' });
+        res.status(420).json({ status: 'error', message: 'ERROR. No se pudo actualizar los datos de la inscripción.'});
       }
 
     })
