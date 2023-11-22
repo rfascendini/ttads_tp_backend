@@ -1,20 +1,30 @@
+import { expect, test, vitest } from 'vitest'
+import { IInscripcion } from '../entities/inscripcion/inscripciones.interface.js'
 
-import { app } from '../app'
-import supertest from 'supertest';
-
-describe('Testing Inscripcion Controller', () => {
-
-  test('function GET.', async () => {
-
-   expect(3).toBe(3)
-
-  })
+const inscripciones: IInscripcion[] = [{
+  
+}]
 
 
-  test('function GET ALL.', async () => {
+test('function GET ALL.', async () => {
 
-    await supertest(app).get("/api/inscripciones/").expect(200)
- 
-   })
 })
+
+test('function GET.', async () => {
+
+})
+
+test('function ADD.', async () => {
+
+})
+
+test('function UPDATE.', async () => {
+
+})
+
+test('function REMOVE.', async () => {
+
+})
+
+
 

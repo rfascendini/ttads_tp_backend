@@ -50,7 +50,7 @@ function update(req: Request, res: Response) {
       if (inscripcion != null) {
         res.status(200).json({ status: 'success', message: '¡La inscripción se ha actualizado correctamente!', inscripcion: inscripcion });
       } else {
-        res.status(420).json({ status: 'error', message: 'ERROR. No se pudo actualizar los datos de la inscripción.'});
+        res.status(420).json({ status: 'error', message: 'ERROR. No se pudo actualizar los datos de la inscripción.' });
       }
 
     })
