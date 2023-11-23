@@ -5,4 +5,4 @@ import { middleware } from '../../middlewares/auth.token.middleware.js'
 export const usuarioRouter = Router()
 
 usuarioRouter.get('/', middleware, getAll)
-usuarioRouter.get('/:id', middleware, get)
+usuarioRouter.get('/:id', get)

@@ -4,5 +4,5 @@ import { middleware } from '../../middlewares/auth.token.middleware.js'
 
 export const carreraRouter = Router()
 
-carreraRouter.get('/', getAll)
-carreraRouter.get('/:id', get)
+carreraRouter.get('/',middleware, getAll)
+carreraRouter.get('/:id',middleware, get)

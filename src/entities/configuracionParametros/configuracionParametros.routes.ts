@@ -4,4 +4,4 @@ import { middleware } from '../../middlewares/auth.token.middleware.js'
 
 export const configuracionParametroRouter = Router()
 
-configuracionParametroRouter.get('/', getAll)
+configuracionParametroRouter.get('/',middleware, getAll)
