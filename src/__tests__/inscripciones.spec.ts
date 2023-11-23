@@ -1,9 +1,6 @@
 import { expect, test, vitest } from 'vitest'
 import { IInscripcion } from '../entities/inscripcion/inscripciones.interface.js'
 
-const inscripciones: IInscripcion[] = [{
-  
-}]
 
 
 test('function GET ALL.', async () => {
